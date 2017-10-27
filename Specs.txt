@@ -1,0 +1,41 @@
+Hello,
+
+Here are the features and requirements I need for our ecommerce website.
+
+Easy and user friendly website to apply new merchandise onto the website with csv/xls format capabilities for bulk inventory transfer as well as single inventory upload.
+
+The categories listed below need to allow my wife and I to manually put in different descriptions when needed. 
+
+Website must have proper functionality to make this website complete; Here is a minimum of what's needed.
+
+Product Name
+Product ID / SKU
+Model
+Brand
+Categories
+Description box (have it work for seo capabilities as well)
+
+Price
+Tax Code
+
+Variations (Colors)
+
+Images (to upload images)
+
+
+Date Available
+Stock Quantity
+Out of Stock Status (drop down menu)
+
+Shipping and Delivery
+
+Weight
+Weight Class
+Downloads
+
+Website needs to look professional and polished as we discussed. Clean, professional layout with PayPal/Check out button/icon, social media links, phone number available on menu and footer, and have it look world class.
+
+This should get the website going. Message me if you need anything.
+
+Thanks,
+Kris and Shannon
