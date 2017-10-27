@@ -15,12 +15,15 @@ get_header(); ?>
 	
 		<!-- Header section start -->
 		<?php
-		$shop_isle_header_image = get_header_image();
-		if ( ! empty( $shop_isle_header_image ) ) :
+		$shop_isle_header_image = get_the_post_thumbnail_url();
+		if ( empty( $shop_isle_header_image ) ) {
+			$shop_isle_header_image = get_header_image();
+		}
+		if ( ! empty( $shop_isle_header_image ) ) {
 			echo '<section class="page-header-module module bg-dark" data-background="' . esc_url( $shop_isle_header_image ) . '">';
-		else :
+		} else {
 			echo '<section class="page-header-module module bg-dark">';
-		endif;
+		}
 		?>
 			<div class="container">
 
@@ -70,9 +73,13 @@ get_header(); ?>
 					 *
 					 * @hooked woocommerce_breadcrumb - 10
 					 */
-					do_action( 'shop_isle_content_top' ); ?>
+					do_action( 'shop_isle_content_top' );
+					?>
 
-					<?php while ( have_posts() ) : the_post(); ?>
+					<?php
+					while ( have_posts() ) :
+						the_post();
+?>
 
 						<?php
 						do_action( 'shop_isle_page_before' );
@@ -89,7 +96,7 @@ get_header(); ?>
 						do_action( 'shop_isle_page_after' );
 						?>
 
-					<?php endwhile; // end of the loop. ?>
+					<?php endwhile; ?>
 					
 					</div>
 					

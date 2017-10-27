@@ -1,0 +1,14 @@
+/*
+ Theme Name:   Dn-Theme
+ Theme URI:    dhruvikneharia.in
+ Description:  A shop-isle child theme 
+ Author:       Dhruvik Neharia
+ Author URI:   dhruvikneharia.in
+ Template:     shop-isle
+*/
+ 
+@import url("../shop-isle/style.css");
+
+navbar-header {
+    width: 330px;
+}

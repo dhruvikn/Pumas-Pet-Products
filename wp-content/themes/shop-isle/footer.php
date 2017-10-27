@@ -11,7 +11,7 @@
 <?php do_action( 'shop_isle_before_footer' ); ?>
 
 	<?php do_action( 'shop_isle_footer' ); ?>
-	
+
 	</div>
 	<!-- Wrapper end -->
 	

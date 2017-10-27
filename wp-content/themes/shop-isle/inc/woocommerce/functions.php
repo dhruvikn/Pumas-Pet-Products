@@ -51,11 +51,13 @@ if ( ! function_exists( 'shop_isle_shop_page_wrapper' ) ) {
 		<section class="module-small module-small-shop">
 				<div class="container">
 
-				<?php if ( is_shop() || is_product_tag() || is_product_category() ) :
+				<?php
+				if ( is_shop() || is_product_tag() || is_product_category() ) :
 
 						do_action( 'shop_isle_before_shop' );
 
-					if ( is_active_sidebar( 'shop-isle-sidebar-shop-archive' ) ) : ?>
+					if ( is_active_sidebar( 'shop-isle-sidebar-shop-archive' ) ) :
+					?>
 
 							<div class="col-sm-9 shop-with-sidebar" id="shop-isle-blog-container">
 
@@ -105,7 +107,7 @@ if ( ! function_exists( 'shop_isle_shop_page_wrapper_end' ) ) {
 	function shop_isle_shop_page_wrapper_end() {
 		?>
 
-			<?php if ( (is_shop() || is_product_category() || is_product_tag() ) && is_active_sidebar( 'shop-isle-sidebar-shop-archive' ) ) :  ?>
+			<?php if ( (is_shop() || is_product_category() || is_product_tag() ) && is_active_sidebar( 'shop-isle-sidebar-shop-archive' ) ) : ?>
 
 				</div>
 
@@ -181,7 +183,7 @@ if ( ! function_exists( 'shop_isle_cart_link_fragment' ) ) {
  */
 function shop_isle_woocommerce_scripts() {
 
-	wp_enqueue_style( 'shop-isle-woocommerce-style1', get_template_directory_uri() . '/inc/woocommerce/css/woocommerce.css', array(), 'v3' );
+	wp_enqueue_style( 'shop-isle-woocommerce-style1', get_template_directory_uri() . '/inc/woocommerce/css/woocommerce.css', array(), '11' );
 }
 
 /**
@@ -193,10 +195,12 @@ function shop_isle_woocommerce_scripts() {
  * @return  array $args related products args.
  */
 function shop_isle_related_products_args( $args ) {
-	$args = apply_filters( 'shop_isle_related_products_args', array(
-		'posts_per_page' => 4,
-		'columns'        => 4,
-	) );
+	$args = apply_filters(
+		'shop_isle_related_products_args', array(
+			'posts_per_page' => 4,
+			'columns'        => 4,
+		)
+	);
 
 	return $args;
 }
@@ -240,12 +244,41 @@ function shop_isle_header_shop_page( $page_title ) {
 
 	$shop_isle_title = '';
 
+	$shop_id = get_option( 'woocommerce_shop_page_id' );
+
+	if ( class_exists( 'WooCommerce' ) && is_woocommerce() ) {
+
+		if ( is_product_category() ) {
+				global $wp_query;
+				$category = $wp_query->get_queried_object();
+			if ( ! empty( $category->term_id ) ) {
+				$thumbnail_id = get_woocommerce_term_meta( $category->term_id, 'thumbnail_id', true );
+			}
+			if ( ! empty( $thumbnail_id ) ) {
+				// Get category featured image
+				$thumb_tmp = wp_get_attachment_url( $thumbnail_id );
+			} else {
+				if ( ! empty( $shop_id ) ) {
+					// Get shop page featured image
+					$thumb_tmp = get_the_post_thumbnail_url( $shop_id );
+				}
+			}
+		} else {
+			// Shop page
+			if ( ! empty( $shop_id ) ) {
+				$thumb_tmp = get_the_post_thumbnail_url( $shop_id );
+			}
+		}
+	}
+
 	$shop_isle_header_image = get_header_image();
-	if ( ! empty( $shop_isle_header_image ) ) :
+	if ( ! empty( $thumb_tmp ) ) {
+		$shop_isle_title = '<section class="' . ( is_woocommerce() ? 'woocommerce-page-title ' : '' ) . 'page-header-module module bg-dark" data-background="' . $thumb_tmp . '">';
+	} elseif ( ! empty( $shop_isle_header_image ) ) {
 		$shop_isle_title = '<section class="' . ( is_woocommerce() ? 'woocommerce-page-title ' : '' ) . 'page-header-module module bg-dark" data-background="' . $shop_isle_header_image . '">';
-	else :
+	} else {
 		$shop_isle_title = '<section class="page-header-module module bg-dark">';
-	endif;
+	}
 
 		$shop_isle_title .= '<div class="container">';
 
@@ -368,8 +401,8 @@ function shop_isle_products_slider_on_single_page() {
 		}
 
 		$shop_isle_products_slider_args = array(
-				'post_type' => 'product',
-				'posts_per_page' => 10,
+			'post_type' => 'product',
+			'posts_per_page' => 10,
 		);
 
 		if ( ! empty( $shop_isle_products_slider_category ) && ($shop_isle_products_slider_category != '-') ) {
@@ -580,10 +613,12 @@ if ( ! function_exists( 'shop_isle_loop_product_thumbnail' ) ) {
 
 				$props = wc_get_product_attachment_props( get_post_thumbnail_id(), $product );
 				$product_id = get_the_ID();
-				echo get_the_post_thumbnail( $product_id, $image_size, array(
-					'title'	 => $props['title'],
-					'alt'    => $props['alt'],
-				));
+				echo get_the_post_thumbnail(
+					$product_id, $image_size, array(
+						'title'  => $props['title'],
+						'alt'    => $props['alt'],
+					)
+				);
 			}
 
 			if ( ! empty( $shop_isle_gallery_attachment_ids[0] ) ) :

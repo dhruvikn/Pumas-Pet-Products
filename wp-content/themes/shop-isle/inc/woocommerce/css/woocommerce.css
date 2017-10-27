@@ -1755,7 +1755,15 @@ table.cart td.actions input {
 .cart-collaterals .cross-sells ul.products li.product {
 	float: left;
 	width: 42.8571428571%;
-	margin-right: 14.2857142857%;
+	margin-right: 5.285714%;
+}
+
+.cart-collaterals .cross-sells ul.products li.product:nth-child(4n+1), .cart-collaterals .cross-sells ul.products li.product.first {
+	clear: none;
+}
+
+.cart-collaterals .cross-sells ul.products li.product:nth-child(2n+1) {
+	clear: both;
 }
 
 .cart-collaterals .cart_totals,
@@ -1807,6 +1815,7 @@ table.cart td.actions input {
 
 .cross-sells ul.products {
 	padding-top: 0;
+	margin-left: 0;
 }
 
 .cross-sells ul.products li.product {
@@ -2976,6 +2985,10 @@ Single product page
 	padding: 0 15px 0 0;
 }
 
+.single-product div.product form.cart .quantity label {
+	display: none;
+}
+
 .single-product div.product form.cart .quantity .qty {
 	width: 100%;
 }
@@ -3045,20 +3058,10 @@ Single product page
 
 .single-product .woocommerce-product-gallery .flex-control-thumbs li {
 	display: inline-block;
-	margin: 2px 11px 10px 0;
-}
-
-.single-product .woocommerce-product-gallery .flex-control-thumbs li:nth-child(6n) {
-	margin-right: 0;
-}
-
-.single-product .woocommerce-product-gallery .flex-control-thumbs li:nth-child(6n+1),
-.single-product .woocommerce-product-gallery .flex-control-thumbs li:first-child {
-	margin-left: 0;
+	margin: 2px 3.5% 10px 0;
 }
 
 .single-product div.product .woocommerce-product-gallery .flex-control-thumbs li img {
-	width: auto;
 	cursor: pointer;
 }
 
@@ -3410,9 +3413,12 @@ ul.products li.product:hover img {
 }
 
 .product .product-button-wrap .add_to_cart_button,
+.product .product-button-wrap .button.product_type_external,
 ul.products li.product .product-button-wrap .button.product_type_simple,
 ul.products li.product .product-button-wrap .button.product_type_grouped,
+ul.products li.product .product-button-wrap .button.product_type_external,
 .shop-item .product-button-wrap .add_to_cart_button,
+.shop-item .product-button-wrap .button.product_type_external,
 .shop-item .product-button-wrap .button.product_type_grouped,
 .shop-item .product-button-wrap .button.product_type_variable,
 ul.products li.product .product-button-wrap .product_type_variable {

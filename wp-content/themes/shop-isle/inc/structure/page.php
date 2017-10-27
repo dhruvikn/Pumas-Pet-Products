@@ -14,13 +14,15 @@ if ( ! function_exists( 'shop_isle_page_content' ) ) {
 	 */
 	function shop_isle_page_content() {
 		?>
-		<div class="entry-content" itemprop="mainContentOfPage">
+		<div class="entry-content">
 			<?php the_content(); ?>
 			<?php
-				wp_link_pages( array(
-					'before' => '<div class="page-links">' . __( 'Pages:', 'shop-isle' ),
-					'after'  => '</div>',
-				) );
+				wp_link_pages(
+					array(
+						'before' => '<div class="page-links">' . __( 'Pages:', 'shop-isle' ),
+						'after'  => '</div>',
+					)
+				);
 			?>
 		</div><!-- .entry-content -->
 		<?php

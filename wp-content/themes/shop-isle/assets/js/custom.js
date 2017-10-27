@@ -107,7 +107,7 @@
 		/* ---------------------------------------------- */
 
 		$(function(){
-			$('.video-player').mb_YTPlayer();
+			$('.video-player').YTPlayer();
 		});
 
 		$('#video-play').click(function(event) {
@@ -152,7 +152,7 @@
 
 		function navbarSubmenu(width) {
 			if (width > 767) {
-				$('.navbar-custom .navbar-nav > li.menu-item-has-children').hover(function() {
+				$('.navbar-custom .navbar-nav > li.menu-item-has-children').on('click mouseover', function() {
 					var MenuLeftOffset  = $('.sub-menu', $(this)).offset().left;
 					var Menu1LevelWidth = $('.sub-menu', $(this)).width();
 					if (width - MenuLeftOffset < Menu1LevelWidth * 2) {
@@ -290,8 +290,20 @@
                 dotsSpeed: 400,
                 items: items,
                 rtl: rtl,
-                nav: navigation,
+                nav: false,
                 navText: ['', ''],
+				responsiveClass:true,
+				responsive:{
+					0:{
+						items:1,
+					},
+					600:{
+						items:3,
+					},
+					1000:{
+						items:5,
+					}
+				}
 			});
 
 		});

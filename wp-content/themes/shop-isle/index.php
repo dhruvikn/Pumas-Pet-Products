@@ -68,11 +68,13 @@ $shop_isle_posts_per_page = get_option( 'posts_per_page' ); /* number of latest 
 
 if ( ! empty( $shop_isle_posts_per_page ) && ($shop_isle_posts_per_page > 0) ) :
 
-	$shop_isle_query = new WP_Query( array(
-		'post_type' => 'post',
-		'posts_per_page' => $shop_isle_posts_per_page,
-		'paged' => ( get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1 ),
-	) );
+	$shop_isle_query = new WP_Query(
+		array(
+			'post_type' => 'post',
+			'posts_per_page' => $shop_isle_posts_per_page,
+			'paged' => ( get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1 ),
+		)
+	);
 
 
 
@@ -92,7 +94,7 @@ if ( ! empty( $shop_isle_posts_per_page ) && ($shop_isle_posts_per_page > 0) ) :
 							$shop_isle_query->the_post();
 
 							?>
-							<div id="post-<?php the_ID(); ?>" <?php post_class( 'post' ); ?> itemscope="" itemtype="http://schema.org/BlogPosting">
+							<div id="post-<?php the_ID(); ?>" <?php post_class( 'post' ); ?>>
 
 								<?php
 								if ( has_post_thumbnail() ) {
@@ -105,7 +107,11 @@ if ( ! empty( $shop_isle_posts_per_page ) && ($shop_isle_posts_per_page > 0) ) :
 								?>
 
 								<div class="post-header font-alt">
-									<h2 class="post-title"><a href="<?php echo esc_url( get_permalink() ); ?>"><?php the_title(); ?></a></h2>
+									<h2 class="post-title entry-title"><a href="
+									<?php
+										echo esc_url( get_permalink() );
+										?>
+										"><?php the_title(); ?></a></h2>
 									<div class="post-meta">
 										<?php
 										shop_isle_posted_on();
@@ -114,7 +120,7 @@ if ( ! empty( $shop_isle_posts_per_page ) && ($shop_isle_posts_per_page > 0) ) :
 									</div>
 								</div>
 
-								<div class="post-entry">
+								<div class="post-entry entry-content">
 									<?php
 									$shop_isleismore = strpos( $post->post_content, '<!--more-->' );
 									if ( $shop_isleismore ) :
@@ -125,9 +131,13 @@ if ( ! empty( $shop_isle_posts_per_page ) && ($shop_isle_posts_per_page > 0) ) :
 									?>
 								</div>
 
-								<div class="post-more">
-									<a href="<?php echo esc_url( get_permalink() ); ?>" class="more-link"><?php esc_html_e( 'Read more','shop-isle' ); ?></a>
-								</div>
+								<?php
+								if ( ! $shop_isleismore ) {
+									echo '<div class="post-more">';
+										echo '<a href="' . esc_url( get_permalink() ) . '" class="more-link">' . esc_html__( 'Read more','shop-isle' ) . '</a>';
+									echo '</div>';
+								}
+								?>
 
 							</div>
 							<?php

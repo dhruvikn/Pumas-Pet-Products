@@ -1,4 +1,82 @@
 
+### 2.2.29 - 25/10/2017
+**Changes:** 
+- Use featured image as header of pages for all page templates
+
+### 2.2.28 - 24/10/2017
+**Changes:** 
+- Fixed issue with affiliate button for products
+- Fixed issue with quantity button alignment with latest WooCommerce release
+
+### 2.2.27 - 20/10/2017
+**Changes:** 
+- Fixed woocommerce gallery thumbnails size with latest WooCommerce
+
+### 2.2.26 - 13/10/2017
+**Changes:** 
+- Fixed error with WooCommerce 3.2
+
+### 2.2.25 - 11/10/2017
+**Changes:** 
+- Fixed issue with logo image size
+
+### 2.2.24 - 10/10/2017
+**Changes:** 
+- Allow flexible height and width for the logo
+
+### 2.2.23 - 06/10/2017
+**Changes:** 
+- Updated the jquery.mb.YTPlayer library
+- Added support for core logo option
+- Fixed issue with large space between products gallery images
+- Aligned Cross-sells products on Cart page
+- Fixed issue with alt tag for resized images used in the Banners section
+
+### 2.2.22 - 03/10/2017
+**Changes:** 
+- Fixed SEO issue with Site title and description
+- Removed schema.org tags to allow plugins to work
+- Open social links from the footer in a new tab
+- Added minified versions for the most important scripts
+- Fixed display issue on the tags archive page
+- Increased size of the dropdown menus arrows to allow better usage on mobile devices
+
+### 2.2.21 - 29/09/2017
+**Changes:** 
+- Fixed issue with the Read more button being duplicated
+- Use featured image as header of pages
+- Fixed issue with background color not working on the product reviews section
+
+### 2.2.20 - 01/09/2017
+**Changes:** 
+- Added Elementor partner ID
+- Changed the upgrade links
+
+### 2.2.19 - 21/08/2017
+**Changes:** 
+- Fixed issue with repeater translations looping with Polylang
+
+### 2.2.18 - 07/08/2017
+**Changes:** 
+- Added page builder templates
+- Added compatibility with Beaver Themer plugin
+- Fixed compatibility issues with WPML
+
+### 2.2.17 - 22/05/2017
+**Changes:** 
+- Added a Shortcode option in Customizer to allow replacing the default slider with a custom one
+- Integration with Nivo Slider Lite
+
+### 2.2.16 - 09/05/2017
+**Changes:** 
+- Fixed transport issues with the copyright option
+- Added alt tags for the banners section
+- Fixed issue with WooCommerce Products Gallery in version 3.0.5
+
+### 2.2.15 - 04/05/2017
+**Changes:** 
+- Fixed responsive issue in the frontpage Products slider
+
 ### 2.2.14 - 24/04/2017
 **Changes:** 
 - Fixed Max Mega Menu plugin compatibility
