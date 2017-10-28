@@ -1,14 +1,51 @@
 /*
  Theme Name:   Dn-Theme
  Theme URI:    dhruvikneharia.in
- Description:  A shop-isle child theme 
+ Description:  A shop-isle child theme
  Author:       Dhruvik Neharia
  Author URI:   dhruvikneharia.in
  Template:     shop-isle
 */
- 
+
+/*
+*	Colors
+*	dim-orange: rgba(249, 136, 102, 1)
+*	orange: rgba(255, 66, 14, 1)
+*	dim-green: rgba(128, 189, 158, 1)
+*	green: rgba(137, 218, 89, 1)
+*/
+
 @import url("../shop-isle/style.css");
 
-navbar-header {
-    width: 330px;
+@import url('https://fonts.googleapis.com/css?family=Chewy');
+
+
+.page .navbar-custom {
+	background-color: rgba(255, 66, 14, 0.8) !important;
+}
+.navbar-header {
+	width: 400px;
+}
+
+.shop_isle_header_title h1 a, .shop_isle_header_title .site-title a {
+	font-family: 'Chewy', cursive;
+	font-size: 1em;
+}
+
+.nav {
+	font-family: 'Chewy', cursive;
+}
+
+.navbar-custom .nav li > a {
+    position: relative;
+    color: rgba(255, 255, 255, 1);
+    font-size: 1.25em;
+}
+
+.header-search-button {
+    color: #fff;
+}
+
+.navbar-cart-inner .icon-basket {
+    color: #fff;
 }
